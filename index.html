@@ -3,21 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UCLA Comparative Catalog Visualization</title>
+    <title>UCLA Comparative Catalog</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <!-- Import React and ReactDOM -->
-    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-    <!-- Import Recharts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.5.0/recharts.min.js"></script>
-    <script>
-      // Create a global Recharts variable from the UMD module
-      window.Recharts = window.recharts;
-    </script>
     <!-- Import PapaParse for CSV processing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <!-- Import Lodash -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 </head>
 <body>
     <header>
@@ -26,9 +15,6 @@
             <nav>
                 <ul>
                     <li><a href="#" class="active" data-view="overview">Overview</a></li>
-                    <li><a href="#" data-view="geographic">Geographic Distribution</a></li>
-                    <li><a href="#" data-view="taxonomic">Taxonomic Distribution</a></li>
-                    <li><a href="#" data-view="update">Update Database</a></li>
                 </ul>
             </nav>
         </div>
@@ -55,57 +41,6 @@
                     <div id="last-updated">Loading...</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="chart-container">
-                        <h3>Geographic Distribution Highlights</h3>
-                        <div id="geo-highlight-chart"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="chart-container">
-                        <h3>Taxonomic Distribution Highlights</h3>
-                        <div id="tax-highlight-chart"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="geographic" class="view">
-            <h2>Geographic Distribution</h2>
-            <div id="geographic-distribution"></div>
-        </section>
-
-        <section id="taxonomic" class="view">
-            <h2>Taxonomic Distribution</h2>
-            <div id="taxonomic-distribution"></div>
-        </section>
-
-        <section id="update" class="view">
-            <h2>Update Database</h2>
-            <div class="form-container">
-                <p>Upload an updated CSV file to refresh the database:</p>
-                <form id="update-form">
-                    <div class="form-group">
-                        <label for="csv-file">CSV File:</label>
-                        <input type="file" id="csv-file" accept=".csv" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn-primary">Update Database</button>
-                    </div>
-                </form>
-                <div id="update-status"></div>
-                <div class="instructions">
-                    <h3>Instructions for Updating the Database</h3>
-                    <ol>
-                        <li>Download the current database by clicking <a href="./data/current-database.csv" download>here</a></li>
-                        <li>Make your changes to the CSV file (add locations, fix data, etc.)</li>
-                        <li>Save the file and upload it using the form above</li>
-                        <li>The website will automatically update with the new data</li>
-                    </ol>
-                    <p><strong>Note:</strong> Please maintain the same column structure in your CSV file.</p>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -116,11 +51,6 @@
     </footer>
 
     <!-- Import our JavaScript files -->
-<script src="./js/simpleCharts.js"></script>
-<script src="./js/main.js"></script>
-<script src="./js/dataProcessor.js"></script>
-<script src="./js/geographicDistribution.js"></script>
-<script src="./js/taxonomicDistribution.js"></script>
-<script src="./js/databaseUpdater.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
