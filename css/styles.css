@@ -278,3 +278,32 @@ footer {
         transform: rotate(360deg);
     }
 }
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.simple-table th, .simple-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.simple-table th {
+  background-color: #f5f5f5;
+}
+
+.card {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.taxonomic-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}

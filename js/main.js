@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initApp() {
     // Load and process data
+    /**
+ * Initialize the application
+ */
+function initApp() {
+    // Load and process data
     loadData()
         .then(data => {
             // Store data in window object for other components to use
@@ -26,6 +31,26 @@ function initApp() {
             
             // Initialize taxonomic distribution
             initTaxonomicDistribution(data);
+            
+            // Add fallback to simple charts if React visualization fails
+            try {
+              // Create simple charts for the overview section
+              createSimpleOverviewCharts(data);
+              
+              // Add event handlers for tab navigation
+              document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                  const viewId = this.getAttribute('data-view');
+                  if (viewId === 'geographic') {
+                    createSimpleGeographicView(data);
+                  } else if (viewId === 'taxonomic') {
+                    createSimpleTaxonomicView(data);
+                  }
+                });
+              });
+            } catch (error) {
+              console.error('Error initializing simple charts:', error);
+            }
         })
         .catch(error => {
             console.error('Error initializing app:', error);
